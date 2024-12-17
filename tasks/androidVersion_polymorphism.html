@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class AndroidVersion8 {
+            feature1 = "Feature-1";
+            feature2 = "Feature-2";
+            Print() {
+                document.write(`${this.feature1}<br>${this.feature2}`);
+            }
+        }
+        class AndroidVersion9 extends AndroidVersion8 {
+            feature3 = "Feature-3";            
+            Print() {
+                super.Print();
+                document.write(`<br>${this.feature3}`);
+            }
+        }
+        function onOptionChange() {
+            var val = document.querySelector("select").value;
+            let obj;
+            switch(parseInt(val)) {
+               case 8:
+                obj = new AndroidVersion8;
+                obj.Print();
+                break;
+               case 9:
+                obj = new AndroidVersion9;
+                obj.Print();
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <select onchange="onOptionChange()">
+        <option value="-1">select version</option>
+        <option value="8">android version 8</option>
+        <option value="9">android version 9</option>
+    </select>
+</body>
+</html>

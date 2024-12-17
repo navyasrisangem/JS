@@ -1,0 +1,37 @@
+<script>
+    class Product {
+        Title;
+        Price;
+        Category;
+        Print() {
+            document.write(`${this.Title} <br> ${this.Price} <br> ${this.Category}`);
+        }
+    }
+    class TV extends Product {
+        Title = "Samsung TV";
+        Price = 35000;
+        Category = "Electronics";
+        Features = "supports 4k videos with 120hz refreshing sound";
+        Print() {
+            super.Print();
+            document.write(`${this.Features}`);
+        }
+    }
+    class NikeCasuals extends Product {
+        Title = "Nike caasual wear";
+        Price = 3500;
+        Category = "Footwear";
+        Features = "with foam sole";
+        Print() {
+            super.Print();
+            document.write(`${this.Features}`);
+        }
+    }
+    let products = new Array(new TV(), new NikeCasuals());
+    var category = prompt("enter category");
+    for(let product of products) {   // here product object is executing polymorphism [can use map also here instead of for of loop]
+       if(product.Category===category) {   // similarly in interviews they ask to design calculator(imp) using only one object for multiple classes
+             product.Print();
+       }
+    }
+</script>

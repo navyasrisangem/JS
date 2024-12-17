@@ -1,0 +1,23 @@
+<!-- Binary conversion using stack with private collection -->
+<script>
+    class BinaryConversion {
+        #nums = [];
+        constructor(value) {
+            while(value>0) {
+                let rem = value % 2;
+                this.push(rem);
+                value = Math.floor(value/2);
+            }
+        }
+        push(rem) {
+            this.#nums.push(rem);
+        }
+        Print() {
+            console.log(`Binary code of given number is ${this.#nums.reverse().join("")}`);
+        }
+    }
+    let obj1 = new BinaryConversion(17);
+    obj1.Print();
+    let obj2 = new BinaryConversion(27);
+    obj2.Print();
+</script>
