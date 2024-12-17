@@ -1,0 +1,43 @@
+<script>
+    var no1 = parseInt(prompt("Enter first number"));
+    var no2 = parseInt(prompt("Enter second number"));
+    class Add {
+        id = "addition";
+        add = no1 + no2;
+        Print() {
+            document.write(`Result is ${this.add}`);
+        }
+    }
+    class Substract {
+        id = "substraction";
+        sub = no1 + no2;
+        Print() {
+            document.write(`Result is ${this.sub}`);
+        }
+    }
+    class Multiply {
+        id = "multiplication";
+        mul = no1 + no2;
+        Print() {
+            document.write(`Result is ${this.mul}`);
+        }
+    }
+    class Divide {
+        id = "division";
+        div = no1 + no2;
+        Print() {
+            document.write(`Result is ${this.div}`);
+        }
+    }
+    let Math = [];
+    Math[0] = new Add();
+    Math[1] = new Substract();
+    Math[2] = new Multiply();
+    Math[3] = new Divide();
+    var operation = prompt("Enter the operation <addition | substraction | multiplication | division>").toLowerCase();
+    Math.forEach(element => {
+        if(element.id === operation) {
+            element.Print();
+        }
+    })
+</script>

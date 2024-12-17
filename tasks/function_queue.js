@@ -1,0 +1,26 @@
+function Queue() {
+   let items = [];
+   this.shift = function (element) {
+      items.unshift(element);
+   }
+   this.pop = function () {
+      return items.shift();
+   }
+   this.peek = function () {
+      return items[0];
+   }
+   this.size = function () {
+      return items.length;
+   }
+   this.clear = function () {
+      items.length = 0;
+   }
+}
+let obj = new Queue();
+obj.shift("A");
+obj.shift("B");
+obj.shift("C");
+console.log(obj.pop());
+console.log(obj.peek());
+obj.clear();
+console.log(obj.size());

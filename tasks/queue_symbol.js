@@ -1,0 +1,37 @@
+let _items = Symbol();
+class Queue {
+    constructor() {
+        this[_items] = [];
+    }
+    shift(element) {
+        this[_items].unshift(element);
+    }
+    pop() {
+        return this[_items].shift();
+    }
+    peek() {
+        return this[_items][0];
+    }
+    clear() {
+        this[_items].length = 0;
+    }
+    isEmpty() {
+        return this[_items].length === 0;
+    }
+    size() {
+        return this[_items].length;
+    }
+    print() {
+        console.log(this[_items].toString());
+    }
+}
+let obj = new Queue();
+obj.shift("A");
+obj.shift("B");
+obj.shift("C");
+obj.print();
+console.log(obj.pop());
+console.log(obj.peek());
+console.log(obj.size());
+obj.clear();
+console.log(obj.items);

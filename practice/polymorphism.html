@@ -29,9 +29,9 @@
     }
     let products = new Array(new TV(), new NikeCasuals());
     var category = prompt("enter category");
-    for(let product of products) {   // here product object is executing polymorphism [can use map also here instead of for of loop]
-       if(product.Category===category) {   // similarly in interviews they ask to design calculator(imp) using only one object for multiple classes
-             product.Print();
-       }
+    for (let product of products) {   // here product object is executing polymorphism [can use map also here instead of for of loop]
+        if (product.Category === category) {   // similarly in interviews they ask to design calculator(imp) using only one object for multiple classes
+            product.Print();
+        }
     }
 </script>
