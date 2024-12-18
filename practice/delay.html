@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules | Project</title>
+    <script type="module">        
+            document.getElementById("add").addEventListener("click",  () => {
+                document.querySelector("p").innerHTML = "please wait...";
+                setTimeout(async ()=> {                
+                const module = await import("./demo.js");    
+                document.querySelector("p").innerHTML = "";                    
+                document.querySelector("p").innerHTML = `Addition=${module.Addition(parseInt(prompt("Enter Number1")), parseInt(prompt("Enter Number 2")))}`            
+            }, 5000);   //do this with clear timeout also....
+            })
+
+            document.getElementById("hello").addEventListener("click", () => {
+                document.querySelector("p").innerHTML = "please wait...";
+                setTimeout(async ()=> {
+                const module = await import("./demo.js");  
+                document.querySelector("p").innerHTML = "";           
+                document.querySelector("p").innerHTML = `${module.Hello('John')}`;
+            }, 5000);
+            })        
+    </script>
+</head>
+<body>
+    <button id="add">Addition</button>
+    <button id="hello">Hello</button>
+    <p></p>
+</body>
+
+</html>
