@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <script>
+        function validation() {
+            let name = document.getElementById("name");
+            let age = document.getElementById("age");
+            let dob = document.getElementById("dob");
+            let city = document.getElementById("city");
+            let gender = document.querySelector("input[name='Gender']:checked");
+            let reqName = document.getElementById("reqName");
+            let reqAge = document.getElementById("reqAge");
+            let reqDob = document.getElementById("reqDob");
+            let reqCity = document.getElementById("reqCity");
+            let reqGender = document.getElementById("reqGender");
+            let ptags = document.querySelectorAll("p");
+            ptags.forEach((p) => {
+                p.style.color = "Red";
+            })
+            let isValid = true;
+            if (name.value === "") {           //name validation
+                reqName.textContent = "Required*";
+                isValid = false;
+            } else if (name.value.length < 4 || name.value.length > 15) {
+                reqName.textContent = "Name should have 4 to 15 characters";
+                isValid = false;
+            } else {
+                reqName.textContent = "";
+            }
+
+            if (age.value === "") {            //age validation
+                reqAge.textContent = "Required*";
+                isValid = false;
+            } else if (age.value < 15 || age.value > 40) {
+                reqAge.textContent = "Age should be in between 15 and 40";
+                isValid = false;
+            } else {
+                reqAge.textContent = "";
+            }
+
+            if (dob.value === "") {            //dob validation
+                reqDob.textContent = "Date of Birth is required";
+                isValid = false;
+            } else {
+                reqDob.textContent = "";
+            }
+
+            if (city.value === "select city name") {     //city validation
+                reqCity.textContent = "Select a city name";
+                isValid = false;
+            } else {
+                reqCity.textContent = "";
+            }
+
+            if (!gender) {                               //gender validation
+                reqGender.textContent = "Select a gender";
+                isValid = false;
+            } else {
+                reqGender.textContent = "";
+            }
+            return isValid;
+        }
+        function submitForm(event) {
+            event.preventDefault();
+            if (validation()) {
+                let name = document.getElementById("name").value;
+                let age = document.getElementById("age").value;
+                let dob = document.getElementById("dob").value;
+                let city = document.getElementById("city").value;
+                let gender = document.querySelector("input[name='Gender']:checked").value;
+                let querystring = `?Name=${name}&Age=${age}&Dob=${dob}&City=${city}&Gender=${gender}`;
+                window.location.href = `./review.html${querystring}`;
+            };
+        }
+    </script>
+</head>
+<body>
+    <form method="get" onsubmit="submitForm(event)">
+        <dl>
+            <dt>NAME</dt>
+            <dd><input type="text" name="Name" id="name"></dd>
+            <p id="reqName"></p>
+            <dt>AGE</dt>
+            <dd><input type="number" name="Age" id="age"></dd>
+            <p id="reqAge"></p>
+            <dt>DATE OF BIRTH</dt>
+            <dd><input type="date" name="Dob" id="dob"></dd>
+            <p id="reqDob"></p>
+            <dt>CITY</dt>
+            <dd><select name="City" id="city">
+                    <option disabled selected>select city name</option>
+                    <option>delhi</option>
+                    <option>hyderabad</option>
+                    <option>mumbai</option>
+                    <option>banglore</option>
+                </select></dd>
+            <p id="reqCity"></p>
+            <dt>GENDER</dt>
+            <dd>
+                <input type="radio" name="Gender" value="Male" id="male">Male
+                <input type="radio" name="Gender" value="Female" id="female">Female
+            </dd>
+            <p id="reqGender"></p>
+            <button id="button">submit</button>
+        </dl>
+    </form>
+</body>
+</html>

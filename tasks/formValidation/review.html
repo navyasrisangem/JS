@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review</title>
+    <script>
+         function onbodyload() {
+            const querystring = location.search;
+            const params = new URLSearchParams(querystring);
+            let table = document.querySelector("table") //params is map type(has keys and values)
+            for(var [key, value] of params.entries()) {
+               const row = table.insertRow();
+               const column1 = row.insertCell(0);
+               const column2 = row.insertCell(1);
+               column1.textContent = key;
+               column2.textContent = value;
+            }
+         }
+    </script>
+</head>
+<body onload="onbodyload()">
+    <table border="1" width="300">
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- dynamically -->
+        </tbody>
+    </table>
+</body>
+</html>
