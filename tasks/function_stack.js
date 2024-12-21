@@ -22,16 +22,16 @@ function Stack() {
         console.log(items.toString());
     }
 }
-let obj = new Stack();
-obj.push("A");
-obj.push("B");
-obj.print();
-console.log(obj.pop());
-console.log(obj.peek());
-obj.clear();
-console.log(obj.isEmpty());
-console.log(obj.size());
-obj.print();
+let obj1 = new Stack();
+obj1.push("A");
+obj1.push("B");
+obj1.print();
+console.log(obj1.pop());
+console.log(obj1.peek());
+obj1.clear();
+console.log(obj1.isEmpty());
+console.log(obj1.size());
+obj1.print();
 
 
 
