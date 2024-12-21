@@ -7,5 +7,5 @@ class Product {
         console.log(`Name = ${this.#ReturnName()}`);
     }
 }
-let obj = new Product();
-obj.Print();
+let obj1 = new Product();
+obj1.Print();
