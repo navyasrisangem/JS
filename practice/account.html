@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function onbodyload() {
+            let userid1 = document.querySelector("p");
+            userid1.innerHTML = sessionStorage.getItem("username");
+        }
+        function signout() {
+            location.href = "./session.html";
+        }
+        function signoutauto() {
+           alert(`your session has ended`);
+           sessionStorage.removeItem('username');
+           location.href = "./session.html";
+        }
+        window.onload = setTimeout(signoutauto, 5000);
+        document.onkeypress = setTimeout(signoutauto, 5000);
+        document.onmousemove = setTimeout(signoutauto, 5000);
+        document.onscroll = setTimeout(signoutauto, 5000);
+        document.onkeydown = setTimeout(signoutauto, 5000);
+        document.onclick = setTimeout(signoutauto, 5000);
+    </script>
+</head>
+<body onload="onbodyload()">
+    <h3>User account</h3>
+    <p></p>
+    <button onclick="signout()">signout</button>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function onbodyload() {
+            if(sessionStorage.getItem("username") === null) {
+                location.href("./login.html");
+            } else {
+                let userid = document.querySelector("p");
+                userid.innerHTML = sessionStorage.getItem("username");
+            }
+        }
+        function signout() {
+           location.href = "./session.html";
+        }
+        function settings() {
+          location.href = "./account.html";
+        }
+        var task;
+        function signoutauto() {
+           alert(`your session has ended`);
+           sessionStorage.removeItem('username');
+           location.href = "./session.html";
+        }
+        
+        window.onload = setTimeout(signoutauto, 5000);
+        document.onkeypress = setTimeout(signoutauto, 5000);
+        document.onmousemove = setTimeout(signoutauto, 5000);
+        document.onscroll = setTimeout(signoutauto, 5000);
+        document.onkeydown = setTimeout(signoutauto, 5000);
+        document.onclick = setTimeout(signoutauto, 5000);
+        document.ontouchstart = setTimeout(signoutauto, 5000);  //for mobile devices
+    </script>
+</head>
+<body onload="onbodyload()">
+    <h3>User Dashboard</h3>
+    <p></p>
+    <button onclick="settings()">settings</button>
+    <button onclick="signout()">Signout</button>
+</body>
+</html>
