@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Login</title>
     <script>
         function onbuttonclick() {
-            let username = document.getElementById("name").value;
-            sessionStorage.setItem("username", username);
+            let username = document.getElementById("name").value;           
+            localStorage.setItem("username", username);
             location.href = "./dashboard.html";
-        }        
+        }               
     </script>
 </head>
 <body>
