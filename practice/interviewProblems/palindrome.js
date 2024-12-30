@@ -1,12 +1,17 @@
 function palindrome(n) {
-    
     let temp = n;
-    n = n%10;
-    n= n/10;
-    console.log(n);
-
-    for(i=0;i<n.length;i++) {
-        
+    let rem = 0;
+    let result = 0;
+    while (n > 0) {
+        rem = n % 10;
+        n = n / 10;
+        result = result * 10 + rem;
+        n = parseInt(n);
+    }
+    if (temp === result) {
+        console.log("palindrome");
+    } else {
+        console.log("Not a palindrome");
     }
 }
-palindrome("1234321");
+palindrome(10901);
