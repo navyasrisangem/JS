@@ -1,31 +1,21 @@
 function numberToWords(num) {
-    if (num === 0) return "zero";
-
-    const belowTwenty = [
-        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
+    const onesAndTeens = [
+      "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+      "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", 
+      "Seventeen", "Eighteen", "Nineteen"
     ];
-    const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
-    const thousands = ["", "thousand", "million", "billion"];
+    const tens = [
+      "", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+    ];
 
-    function helper(n) {
-        if (n === 0) return "";
-        if (n < 20) return belowTwenty[n - 1] + " ";
-        if (n < 100) return tens[Math.floor(n / 10)] + " " + helper(n % 10);
-        if (n < 1000) return belowTwenty[Math.floor(n / 100) - 1] + " hundred " + helper(n % 100);
-        return "";
+    if (num >=0 && num < 20) {
+      return onesAndTeens[num];
+    } else if (num >=20 && num < 100) {
+      return tens[Math.floor(num / 10)] + 
+             (num % 10 !== 0 ? " " + onesAndTeens[num % 10] : "");
+    } else {
+      return onesAndTeens[Math.floor(num / 100)] + " Hundred" + 
+             (num % 100 !== 0 ? " " + numberToWords(num % 100) : "");
     }
-
-    let word = "";
-    let i = 0;
-
-    while (num > 0) {
-        if (num % 1000 !== 0) {
-            word = helper(num % 1000) + thousands[i] + " " + word;
-        }
-        num = Math.floor(num / 1000);
-        i++;
-    }
-
-    return word.trim();
-}
+  }
+  console.log(numberToWords(100));

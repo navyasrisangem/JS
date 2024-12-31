@@ -1,16 +1,24 @@
-let username = prompt("enter your name");
-function Validate(username) {
-     return {
-        required : function() {
-            if(!username) {
-              alert("username required")
+function Validate(str) {
+    var name = "";
+    return {
+        required: function () {
+            if (str === "") {
+                console.log("username required");
             }
+            return this;   //required function gets added into the memory of validate function so that chaining is possible.
         },
-        minlength : function(val) {
-             if(username.length < 4) {
-                alert("minimum length is 4 characters");
-             }
+        minlength: function (val) {
+            if (str.length < val) {
+                console.log("name too short");
+            } else {
+                name = str;
+            }
+            return this;    //minlength function gets added into the memory of validate function so that chaining is possible.
+        },
+        print: function () {
+            console.log(str);
+            return this;
         }
-     }
+    }
 }
-Validate(null).required().minlength(4);
+Validate("nav").required().minlength(4).print();
